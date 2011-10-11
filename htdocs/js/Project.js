@@ -5,15 +5,21 @@ function Project(ruby, rail, pyth){
 	this.pyAbility = pyth;
 	this.compatibleStudents = [];
 	
-	this.isCompatible = function(languageList){
-		
+	// Just returns true temporarily, will implement properly later
+	function isCompatible(student){
+		return true;
 	};
 	
-	this.getCompatibleStudents = function(){
-		return compatibleStudents;
-	};
-	
-	this.modifyStudyPath = function(language){
+	// Looks through students and finds compatible students and adds
+	// found ones to the list
+	this.getCompatibleStudents = function(studentList){
+		for(stud in studentList){
+			var student = studentList[stud];
+			
+			if (isCompatible(student)){
+				compatibleStudents.push(new CompatibleStudent(student, 0.5));
+			}
+		}
 		
 	};
 }

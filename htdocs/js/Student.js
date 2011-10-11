@@ -3,8 +3,7 @@ function Student(pyth, c, java){
 	this.pyAbility = pyth;
 	this.cAbility = c;
 	this.javAbility = java;
-	compatibleProjList = [];
-	desiredProjList = [];
+	this.desiredProjList = [];
 	
 	this.isCompatible = function(languageList){
 		

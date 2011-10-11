@@ -1,14 +1,12 @@
-function StudyPath(lang, tut){
+function StudyPath){
 	
-	this.language = lang;
-	this.tutorial = tut;
-	this.urlList = [];
+	var urlList = [];
 	
 	this.getTutorial = function(){
-		return tutorial;
+		return urlList;
 	}
 	
-	this.setTutorial = function(newTut){
-		this.tutorial = newTut;
+	this.setTutorial = function(){
+		
 	}
 }
