@@ -5,12 +5,25 @@ function Student(pyth, c, java){
 	this.javAbility = java;
 	this.desiredProjList = [];
 	
-	this.isCompatible = function(languageList){
-		
+	function isCompatible(proj){
+		cVal = this.cAbility * proj.cAbility;
+		pyVal = this.pyAbility * proj.pyAbility;
+		result = cVal + pyVal;
+		return result;
 	};
 	
-	this.getCompatibleProject = function(){
-		return compatibleProjList;
+	this.getDesiredProject = function(companyList){
+		for(cIndex in companyList){
+			company = companyList[cIndex];
+			projects = company.getProjects();
+			
+			for(pIndex in projects){
+				project = projects[pIndex];
+				compatibility = isCompatible(project);
+				this.desiredProjList.push(new DesiredProject(project.name, compatibility));
+			}
+		}
+		return this.desiredProjList;
 	};
 	
 	this.testLanguage = function(){
@@ -20,4 +33,4 @@ function Student(pyth, c, java){
 	this.getStudyPathToProject = function(){
 		
 	};
-})
+}

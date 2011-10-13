@@ -1,8 +1,10 @@
-function Project(ruby, rail, pyth){
+function Project(ruby, rail, pyth, c, projName){
 	
 	this.rubAbility = ruby;
 	this.railAbility = rail;
 	this.pyAbility = pyth;
+	this.cAbility = c;
+	this.name = projName;
 	this.compatibleStudents = [];
 	
 	// Just returns true temporarily, will implement properly later
