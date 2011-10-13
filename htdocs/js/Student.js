@@ -3,9 +3,9 @@ function Student(pyth, c, java){
 	this.pyAbility = pyth;
 	this.cAbility = c;
 	this.javAbility = java;
-	this.desiredProjList = [];
+	var desiredProjList = [];
 	
-	function isCompatible(proj){
+	this.isCompatible = function(proj){
 		cVal = this.cAbility * proj.cAbility;
 		pyVal = this.pyAbility * proj.pyAbility;
 		result = cVal + pyVal;
@@ -19,11 +19,11 @@ function Student(pyth, c, java){
 			
 			for(pIndex in projects){
 				project = projects[pIndex];
-				compatibility = isCompatible(project);
-				this.desiredProjList.push(new DesiredProject(project.name, compatibility));
+				compatibility = this.isCompatible(project);
+				desiredProjList.push(new DesiredProject(project.name, compatibility));
 			}
 		}
-		return this.desiredProjList;
+		return desiredProjList;
 	};
 	
 	this.testLanguage = function(){

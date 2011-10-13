@@ -5,11 +5,14 @@ function Project(ruby, rail, pyth, c, projName){
 	this.pyAbility = pyth;
 	this.cAbility = c;
 	this.name = projName;
-	this.compatibleStudents = [];
+	var compatibleStudents = [];
 	
-	// Just returns true temporarily, will implement properly later
-	function isCompatible(student){
-		return true;
+	
+	this.isCompatible = function(student){
+		cVal = this.cAbility * student.cAbility;
+		pyVal = this.pyAbility * student.pyAbility;
+		result = cVal + pyVal;
+		return result;
 	};
 	
 	// Looks through students and finds compatible students and adds
@@ -17,11 +20,9 @@ function Project(ruby, rail, pyth, c, projName){
 	this.getCompatibleStudents = function(studentList){
 		for(stud in studentList){
 			var student = studentList[stud];
-			
-			if (isCompatible(student)){
-				compatibleStudents.push(new CompatibleStudent(student, 0.5));
-			}
+			compatibility = this.isCompatible(student)
+			compatibleStudents.push(new CompatibleStudent(student, compatibility));
 		}
-		
+		return compatibleStudents;
 	};
 }
