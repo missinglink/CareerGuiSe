@@ -1,8 +1,10 @@
-function Student(pyth, c, java){
+function Student(name, age){
 	
-	this.pyAbility = pyth;
-	this.cAbility = c;
-	this.javAbility = java;
+	this.pyAbility = 0.0;
+	this.cAbility = 0.0;
+	this.javAbility = 0.0;
+	this.name = name;
+	this.age = age;
 	var desiredProjList = [];
 	
 	this.isCompatible = function(proj){
@@ -27,7 +29,9 @@ function Student(pyth, c, java){
 	};
 	
 	this.testLanguage = function(){
-		
+		this.pyAbility = Math.floor(Math.random()*101);
+		this.cAbility = Math.floor(Math.random()*101);
+		this.javAbility = Math.floor(Math.random()*101);
 	};
 	
 	this.getStudyPathToProject = function(){

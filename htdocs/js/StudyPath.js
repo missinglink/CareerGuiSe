@@ -1,12 +1,13 @@
-function StudyPath){
+function StudyPath(){
 	
-	var urlList = [];
+	var languageList = [];
 	
 	this.getTutorial = function(){
-		return urlList;
-	}
+		return languageList;
+	};
 	
-	this.setTutorial = function(){
-		
-	}
+	this.setTutorial = function(languageName, description, tutUrl){
+		var tempLanguage = new Language(languageName, description, tutUrl);
+		languageList.push(tempLanguage);
+	};
 }
