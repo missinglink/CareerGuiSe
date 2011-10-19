@@ -3,8 +3,8 @@
 companyList = []
 languageData = Data.makeLanguages();
 var company = new Company('stuff');
-company.addNewProject(0.25, 0.25, 0.25, 0.25, "Project1");
-company.addNewProject(0.0, 0.0, 0.75, 0.25, "Project2");
+company.addNewProject(0.25, 0.25, 0.25, 0.25, 0, "Project1");
+company.addNewProject(0.0, 0.0, 0.75, 0.25, 0, "Project2");
 companyList.push(company);
 
 for(index in languageData){
@@ -15,14 +15,25 @@ for(index in languageData){
 
 // Create a few students and put them in a list
 var student = new Student("John", 21);
-student.testLanguage();
 var student2 = new Student("Jim", 22);
-student2.testLanguage();
 
 studentList = []
 studentList.push(student);
 studentList.push(student2);
 
+// randomly generated abilities
+student.testLanguage();
+student2.testLanguage();
+
+projectList = company.getProjects();
+
+// add desired projects
+for(index in projectList){
+	project = projectList[index];
+	student.addDesiredProject(project);
+	student2.addDesiredProject(project);
+}
+	
 // Get a list of desired projects by a student
 desiredProjects = student.getDesiredProject(companyList);
 
@@ -35,7 +46,16 @@ desiredStudents = firstProject.getCompatibleStudents(studentList);
 document.write("Desired project output...<br/>")
 for(index in desiredProjects){
 	item = desiredProjects[index];
-	document.write(item.projectName + " you have a compatibility of: " + item.compatibility + "<br/>");
+	document.write(item.project.name + " you have a compatibility of: " + item.compatibility + "<br/>");
+	
+	studyPath = item.getStudyPath();
+	
+	for(i in studyPath){
+		langPath = studyPath[i];
+		document.write("<br/>" + langPath.language + " " + langPath.compatibilityIncrease  + "<br/>");
+	}
+	
+	
 }
 
 // Print out the desired students

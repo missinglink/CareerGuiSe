@@ -1,16 +1,23 @@
-function Project(ruby, rail, pyth, c, projName){
+function Project(ruby, rail, pyth, c, java, projName){
 	
-	this.rubAbility = ruby;
+	// set name
+	this.name = projName;	
+	document.write(projName + "\n\n")
+	// set abilities
+	this.rubyAbility = ruby;
 	this.railAbility = rail;
-	this.pyAbility = pyth;
+	this.pythonAbility = pyth;
 	this.cAbility = c;
-	this.name = projName;
-	var compatibleStudents = [];
+	this.javaAbility = java;
 	
+
+	
+	// init list of compatible students
+	var compatibleStudents = [];
 	
 	this.isCompatible = function(student){
 		cVal = this.cAbility * student.cAbility;
-		pyVal = this.pyAbility * student.pyAbility;
+		pyVal = this.pythonAbility * student.pythonAbility;
 		result = cVal + pyVal;
 		return result;
 	};
